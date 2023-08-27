@@ -53,6 +53,11 @@ def all_data():
     data = wildlife.get_all_values()
     print(data)
 
+def all_data1():
+    #get all values from spreasheet
+    return wildlife.get_all_values()
+
+
 def update_sheet(sighting, worksheet='Wildlife'):
     #convert sighting into list
     data = sighting.to_list()
@@ -86,102 +91,112 @@ def menu():
     print("10 - View full wildlife list")
     print("q - Quit")
 
-# #Add wildlife
-def option1():
-    all_data()
-# #Delete wildlife
-def option2():
-    all_data()
-# #View wildlife
-def option3():
-    all_data()
-# #Update wildlife
-def option4():
-    all_data()
-# #Size of list
-def option5():
-    all_data()
-# #Search by common name
-def option6():
-    all_data()
-# #Search by scientific name
-def option7():
-    all_data()
-# #Search by typical habitats
-def option8():
-    all_data()
-# #chart of estimated population
-def option9():
-    all_data()
-# #View full wildlife list
-def option10():
-    all_data()
+def wildlife_list():
+    data = all_data1()
+    counter = 1  # starting from 1 as per your example
+    for row in data[1:]:
+        print(f"{counter} - {row[1]}")
+        counter += 1
 
-def enter():
-    print("----------------------------------")
-    print(input("Press Enter to continue..."))
+wildlife_list()
 
 
+# # #Add wildlife
+# def option1():
+#     all_data()
+# # #Delete wildlife
+# def option2():
+#     all_data()
+# # #View wildlife
+# def option3():
+#     all_data()
+# # #Update wildlife
+# def option4():
+#     all_data()
+# # #Size of list
+# def option5():
+#     all_data()
+# # #Search by common name
+# def option6():
+#     all_data()
+# # #Search by scientific name
+# def option7():
+#     all_data()
+# # #Search by typical habitats
+# def option8():
+#     all_data()
+# # #chart of estimated population
+# def option9():
+#     all_data()
+# # #View full wildlife list
+# def option10():
+#     all_data()
 
-#options of Menu
-while True:
-    menu()
-    option = input("Pick an option: \n").strip()
-
-    if option == "1":
-        option1()
-        enter()
-        menu()
-    if option == "2":
-        option2()
-        enter()
-        menu()
-    if option == "3":
-        option3()
-        enter()
-        menu()
-    if option == "4":
-        option4()
-        enter()
-        menu()
-    if option == "5":
-        option5()
-        enter()
-        menu()
-    if option == "6":
-        option6()
-        enter()
-        menu()
-    if option == "7":
-        option7()
-        enter()
-        menu()
-    if option == "8":
-        option8()
-        enter()
-        menu()
-    if option == "9":
-        option9()
-        enter()
-        menu()
-    if option == "10":
-        option10()
-        enter()
-        menu()
-
-    elif option == "q":
-        print("Program Dead")
-        break
-    else:
-        print("Invalid!!! Please try again!!!")
-        break
+# def enter():
+#     print("----------------------------------")
+#     print(input("Press Enter to continue..."))
 
 
 
+# #options of Menu
+# while True:
+#     menu()
+#     option = input("Pick an option: \n").strip()
+
+#     if option == "1":
+#         option1()
+#         enter()
+#         menu()
+#     if option == "2":
+#         option2()
+#         enter()
+#         menu()
+#     if option == "3":
+#         option3()
+#         enter()
+#         menu()
+#     if option == "4":
+#         option4()
+#         enter()
+#         menu()
+#     if option == "5":
+#         option5()
+#         enter()
+#         menu()
+#     if option == "6":
+#         option6()
+#         enter()
+#         menu()
+#     if option == "7":
+#         option7()
+#         enter()
+#         menu()
+#     if option == "8":
+#         option8()
+#         enter()
+#         menu()
+#     if option == "9":
+#         option9()
+#         enter()
+#         menu()
+#     if option == "10":
+#         option10()
+#         enter()
+#         menu()
+
+#     elif option == "q":
+#         print("Program Dead")
+#         break
+#     else:
+#         print("Invalid!!! Please try again!!!")
+#         break
 
 
 
-# delete(15)
+
+
+
+# # delete(15)
 
 # all_data()
 # update_sheet(sighting1)
