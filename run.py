@@ -72,10 +72,55 @@ def delete(species_id, worksheet ="Wildlife"):
     print(f"{row} deleted")
 
 
-delete(15)
+def menu():
+    print("Menu")
+    print("1 - Add wildlife")
+    print("2 - Delete wildlife")
+    print("3 - View wildlife")
+    print("4 - Update wildlife")
+    print("5 - Size of list")
+    print("6 -Search by common name")
+    print("7 -Search by scientific name")
+    print("8 - Search by typical habitats")
+    print("9 - chart of estimated population")
+    print("10 - View full wildlife list")
+    print("q - Quit")
+
+#options of Menu
+while True:
+    menu()
+    option = input("Pick an option: \n")
+
+    if option == "1":
+        option1()
+    elif option == "2":
+        option2()
+    elif option == "3":
+        option3()
+    elif option == "4":
+        option4()
+    elif option == "5":
+        option5()
+    elif option == "6":
+        option6()
+    elif option == "7":
+        option7()
+    elif option == "8":
+        option8()
+    elif option == "9":
+        option9()
+    elif option == "q":
+        print("Program Dead")
+        break
+    else:
+        print("Invalid!!! Please try again!!!")
+
+# delete(15)
 
 # all_data()
-
+# update_sheet(sighting1)
 # update_sheet(sighting2)
 
 # def main():
+
+menu()
