@@ -86,34 +86,93 @@ def menu():
     print("10 - View full wildlife list")
     print("q - Quit")
 
+# #Add wildlife
+# # def option1():
+
+
+# #Delete wildlife
+# def option2():
+
+
+# #View wildlife
+# def option3():
+
+
+# #Update wildlife
+# def option4():
+
+
+# #Size of list
+# def option5():
+
+
+# #Search by common name
+# def option6():
+
+
+# #Search by scientific name
+# def option7():
+
+
+# #Search by typical habitats
+# def option8():
+
+
+# #chart of estimated population
+# def option9():
+#     all_data()
+
+# #View full wildlife list
+def option10():
+    all_data()
+
+
+
+
 #options of Menu
 while True:
     menu()
-    option = input("Pick an option: \n")
+    option = input("Pick an option: \n").strip()
 
     if option == "1":
-        option1()
-    elif option == "2":
-        option2()
-    elif option == "3":
-        option3()
-    elif option == "4":
-        option4()
-    elif option == "5":
-        option5()
-    elif option == "6":
-        option6()
-    elif option == "7":
-        option7()
-    elif option == "8":
-        option8()
-    elif option == "9":
-        option9()
+        all_data()
+        break
+    if option == "2":
+        all_data()
+        break
+    if option == "3":
+        all_data()
+        break
+    if option == "4":
+        all_data()
+        break
+    if option == "5":
+        all_data()
+        break
+    if option == "6":
+        all_data()
+        break
+    if option == "7":
+        all_data()
+        break
+    if option == "8":
+        all_data()
+    if option == "9":
+        all_data()
+    if option == "10":
+        option10()
+        break
     elif option == "q":
         print("Program Dead")
         break
     else:
         print("Invalid!!! Please try again!!!")
+        break
+
+
+
+
+
 
 # delete(15)
 
@@ -123,4 +182,4 @@ while True:
 
 # def main():
 
-menu()
+# menu()
