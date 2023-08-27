@@ -126,6 +126,9 @@ def menu():
 def option10():
     all_data()
 
+def enter():
+    print("----------------------------------")
+    print(input("Press Enter to continue..."))
 
 
 
@@ -161,7 +164,9 @@ while True:
         all_data()
     if option == "10":
         option10()
-        break
+        enter()
+        menu()
+
     elif option == "q":
         print("Program Dead")
         break
