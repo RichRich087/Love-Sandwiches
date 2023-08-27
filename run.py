@@ -62,12 +62,20 @@ def update_sheet(sighting, worksheet='Wildlife'):
 
     print(f"{worksheet} has been updated! ")
 
+def delete(species_id, worksheet ="Wildlife"):
+    sheet = SHEET.worksheet(worksheet)
+    id = sheet.col_values(1)
+    
+    #find row index for species_id
+    row = id.index(str(species_id)) + 1
+    sheet.delete_row(row)
+    print(f"{row} deleted")
 
 
-all_data()
+delete(15)
 
-update_sheet(sighting1)
+# all_data()
+
+# update_sheet(sighting2)
 
 # def main():
-
-
