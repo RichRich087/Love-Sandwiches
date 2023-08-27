@@ -86,6 +86,16 @@ def search_common_name():
     for match in matches:
         print(', '.join(match))
 
+def search_scientific_name():
+    search = input("Enter the scientific name to search for: ").strip().lower()
+    data = all_data1()
+    matches = [row for row in data if row[2].lower() == search]
+    if not matches:
+        print("No matches found for that scientific name.")
+        return
+    for match in matches:
+        print(', '.join(match))
+
 
 def menu():
     print("Menu")
@@ -151,7 +161,7 @@ def option6():
     search_common_name()
 # # #Search by scientific name
 def option7():
-    all_data()
+    search_scientific_name()
 # # #Search by typical habitats
 def option8():
     all_data()
