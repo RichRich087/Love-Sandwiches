@@ -87,41 +87,32 @@ def menu():
     print("q - Quit")
 
 # #Add wildlife
-# # def option1():
-
-
+def option1():
+    all_data()
 # #Delete wildlife
-# def option2():
-
-
+def option2():
+    all_data()
 # #View wildlife
-# def option3():
-
-
+def option3():
+    all_data()
 # #Update wildlife
-# def option4():
-
-
+def option4():
+    all_data()
 # #Size of list
-# def option5():
-
-
+def option5():
+    all_data()
 # #Search by common name
-# def option6():
-
-
+def option6():
+    all_data()
 # #Search by scientific name
-# def option7():
-
-
+def option7():
+    all_data()
 # #Search by typical habitats
-# def option8():
-
-
+def option8():
+    all_data()
 # #chart of estimated population
-# def option9():
-#     all_data()
-
+def option9():
+    all_data()
 # #View full wildlife list
 def option10():
     all_data()
@@ -138,30 +129,41 @@ while True:
     option = input("Pick an option: \n").strip()
 
     if option == "1":
-        all_data()
-        break
+        option1()
+        enter()
+        menu()
     if option == "2":
-        all_data()
-        break
+        option2()
+        enter()
+        menu()
     if option == "3":
-        all_data()
-        break
+        option3()
+        enter()
+        menu()
     if option == "4":
-        all_data()
-        break
+        option4()
+        enter()
+        menu()
     if option == "5":
-        all_data()
-        break
+        option5()
+        enter()
+        menu()
     if option == "6":
-        all_data()
-        break
+        option6()
+        enter()
+        menu()
     if option == "7":
-        all_data()
-        break
+        option7()
+        enter()
+        menu()
     if option == "8":
-        all_data()
+        option8()
+        enter()
+        menu()
     if option == "9":
-        all_data()
+        option9()
+        enter()
+        menu()
     if option == "10":
         option10()
         enter()
