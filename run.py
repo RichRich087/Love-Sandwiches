@@ -92,104 +92,113 @@ def menu():
     print("q - Quit")
 
 def wildlife_list():
+    #get data from all_data function
     data = all_data1()
-    counter = 1  # starting from 1 as per your example
-    for row in data[1:]:
-        print(f"{counter} - {row[1]}")
-        counter += 1
+    counter = 1  # start at 1 due to 1st row being header
+    for row in data[1:]: 
+        print(f"{counter + 1} - {row[1]}") #counter + 1 gets the correct index position
+        counter += 1 #add 1 to counter
 
-wildlife_list()
+
 
 
 # # #Add wildlife
-# def option1():
-#     all_data()
+def option1():
+    all_data()
 # # #Delete wildlife
-# def option2():
-#     all_data()
+def option2():
+    wildlife_list()
+    selection2 = int(input("Enter the number for the entry you would like to delete: \n"))
+    delete(selection2)
+#needs work to make sure correct index is deleted
+
 # # #View wildlife
-# def option3():
-#     all_data()
+def option3():
+    wildlife_list()
+    selection3 = int(input("Enter the number for the entry you would like to view: \n"))
+    print(wildlife.row_values(selection3))
+
 # # #Update wildlife
-# def option4():
-#     all_data()
+def option4():
+    all_data()
 # # #Size of list
-# def option5():
-#     all_data()
+def option5():
+    total = len(all_data1()) - 1 # -1 for header
+    print(f"The list has a total of {total} entries")
 # # #Search by common name
-# def option6():
-#     all_data()
+def option6():
+    all_data()
 # # #Search by scientific name
-# def option7():
-#     all_data()
+def option7():
+    all_data()
 # # #Search by typical habitats
-# def option8():
-#     all_data()
+def option8():
+    all_data()
 # # #chart of estimated population
-# def option9():
-#     all_data()
+def option9():
+    all_data()
 # # #View full wildlife list
-# def option10():
-#     all_data()
+def option10():
+    all_data()
 
-# def enter():
-#     print("----------------------------------")
-#     print(input("Press Enter to continue..."))
+def enter():
+    print("----------------------------------")
+    print(input("Press Enter to continue..."))
 
 
 
-# #options of Menu
-# while True:
-#     menu()
-#     option = input("Pick an option: \n").strip()
+#options of Menu
+while True:
+    menu()
+    option = input("Pick an option: \n").strip()
 
-#     if option == "1":
-#         option1()
-#         enter()
-#         menu()
-#     if option == "2":
-#         option2()
-#         enter()
-#         menu()
-#     if option == "3":
-#         option3()
-#         enter()
-#         menu()
-#     if option == "4":
-#         option4()
-#         enter()
-#         menu()
-#     if option == "5":
-#         option5()
-#         enter()
-#         menu()
-#     if option == "6":
-#         option6()
-#         enter()
-#         menu()
-#     if option == "7":
-#         option7()
-#         enter()
-#         menu()
-#     if option == "8":
-#         option8()
-#         enter()
-#         menu()
-#     if option == "9":
-#         option9()
-#         enter()
-#         menu()
-#     if option == "10":
-#         option10()
-#         enter()
-#         menu()
+    if option == "1":
+        option1()
+        enter()
+        menu()
+    if option == "2":
+        option2()
+        enter()
+        menu()
+    if option == "3":
+        option3()
+        enter()
+        menu()
+    if option == "4":
+        option4()
+        enter()
+        menu()
+    if option == "5":
+        option5()
+        enter()
+        menu()
+    if option == "6":
+        option6()
+        enter()
+        menu()
+    if option == "7":
+        option7()
+        enter()
+        menu()
+    if option == "8":
+        option8()
+        enter()
+        menu()
+    if option == "9":
+        option9()
+        enter()
+        menu()
+    if option == "10":
+        option10()
+        enter()
+        menu()
 
-#     elif option == "q":
-#         print("Program Dead")
-#         break
-#     else:
-#         print("Invalid!!! Please try again!!!")
-#         break
+    elif option == "q":
+        print("Program Dead")
+        break
+    else:
+        print("Invalid!!! Please try again!!!")
+        break
 
 
 
