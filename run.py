@@ -76,6 +76,16 @@ def delete(species_id, worksheet ="Wildlife"):
     sheet.delete_row(row)
     print(f"{row} deleted")
 
+def search_common_name():
+    search = input("Enter the common name to search for: ").strip().lower()
+    data = all_data1()
+    matches = [row for row in data if row[1].lower() == search]
+    if not matches:
+        print("No matches found for that common name.")
+        return
+    for match in matches:
+        print(', '.join(match))
+
 
 def menu():
     print("Menu")
@@ -138,7 +148,7 @@ def option5():
     print(f"The list has a total of {total} entries")
 # # #Search by common name
 def option6():
-    all_data()
+    search_common_name()
 # # #Search by scientific name
 def option7():
     all_data()
