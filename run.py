@@ -96,15 +96,26 @@ def wildlife_list():
     data = all_data1()
     counter = 1  # start at 1 due to 1st row being header
     for row in data[1:]: 
-        print(f"{counter + 1} - {row[1]}") #counter + 1 gets the correct index position
+        print(f"{counter - 1} - {row[1]}") #counter + 1 gets the correct index position
         counter += 1 #add 1 to counter
-
-
 
 
 # # #Add wildlife
 def option1():
-    all_data()
+    print ("Add new wildlife entry:")
+    species_id = input ("Species I.D. (I.D. used internally): \n")
+    common_name = input ("Common Name: \n")
+    scientific_name = input ("Scientific Name: \n")
+    typical_habitats = input ("Typical Habitats: \n")
+    estimated_population = input ("Estimated Population: \n")
+    date_and_time = input ("Date and Time of Sighting (required format '%d/%m/%Y %H:%M' e.g. 26/08/2023 21:10): \n")
+    location = input ("Location of Sighting: \n")
+    notes = input ("Notes: \n")
+
+    sighting = SpeciesSighting (species_id, common_name, scientific_name, typical_habitats, estimated_population, date_and_time, location, notes)
+    update_sheet(sighting)
+    print (f" added: {sighting}")
+
 # # #Delete wildlife
 def option2():
     wildlife_list()
@@ -116,7 +127,7 @@ def option2():
 def option3():
     wildlife_list()
     selection3 = int(input("Enter the number for the entry you would like to view: \n"))
-    print(wildlife.row_values(selection3))
+    print(wildlife.row_values(selection3 + 2))
 
 # # #Update wildlife
 def option4():
