@@ -35,7 +35,12 @@ class SpeciesSighting:
     def __str__(self):
         return f"{self.common_name} ({self.scientific_name}) seen at {self.location_of_sighting} on {self.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M')}."
 
+    def to_list(self):
+        return [self.species_id, self.common_name, self.scientific_name, self.typical_habitats, 
+                self.estimated_population, self.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M'), 
+                self.location_of_sighting, self.notes]
 
+#test adding 2 new items
 sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
 sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
 
@@ -44,11 +49,25 @@ print(sighting2)
 
 
 def all_data():
+    #get all values from spreasheet
     data = wildlife.get_all_values()
     print(data)
+
+def update_sheet(sighting, worksheet='Wildlife'):
+    #convert sighting into list
+    data = sighting.to_list()
+    # update the spreadsheet
+    update = SHEET.worksheet(worksheet)
+    update.append_row(data)
+
+    print(f"{worksheet} has been updated! ")
 
 
 
 all_data()
 
+update_sheet(sighting1)
+
 # def main():
+
+
