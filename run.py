@@ -97,6 +97,17 @@ def search_scientific_name():
         print(', '.join(match))
 
 
+def search_typical_habitat():
+    search = input("Enter the typical habitat to search for: ").strip().lower()
+    data = all_data1()
+    matches = [row for row in data if search in row[3].lower()] #partial match
+    #exact match: matches = [row for row in data if search row[3].lower() == search]
+    if not matches:
+        print("No matches found for that typical habitat.")
+        return
+    for match in matches:
+        print(', '.join(match))
+
 def menu():
     print("Menu")
     print("1 - Add wildlife")
@@ -151,7 +162,31 @@ def option3():
 
 # # #Update wildlife
 def option4():
-    all_data()
+    print("Update Wildlife Entry")
+    wildlife_list()
+    
+    # Ask the user to choose the entry they want to update.
+    entry_num = int(input("Enter the number of the entry you want to update: "))
+    entry_data = all_data1()[entry_num + 1]  # +1 to skip the header row
+
+    # Create a temporary object from the current data
+    tmp_sighting = SpeciesSighting(*entry_data)  # Using * to unpack the list elements as arguments
+
+    # Now, collect new data from the user
+    tmp_sighting.species_id = input(f"Species I.D. (current: {tmp_sighting.species_id}): ") or tmp_sighting.species_id
+    tmp_sighting.common_name = input(f"Common Name (current: {tmp_sighting.common_name}): ") or tmp_sighting.common_name
+    tmp_sighting.scientific_name = input(f"Scientific Name (current: {tmp_sighting.scientific_name}): ") or tmp_sighting.scientific_name
+    tmp_sighting.typical_habitats = input(f"Typical Habitats (current: {tmp_sighting.typical_habitats}): ") or tmp_sighting.typical_habitats
+    tmp_sighting.estimated_population = input(f"Estimated Population (current: {tmp_sighting.estimated_population}): ") or tmp_sighting.estimated_population
+    tmp_sighting.date_and_time_of_sighting = input(f"Date and Time of Sighting (current: {tmp_sighting.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M')}): ") or tmp_sighting.date_and_time_of_sighting
+    tmp_sighting.location_of_sighting = input(f"Location of Sighting (current: {tmp_sighting.location_of_sighting}): ") or tmp_sighting.location_of_sighting
+    tmp_sighting.notes = input(f"Notes (current: {tmp_sighting.notes}): ") or tmp_sighting.notes
+
+    # Update the chosen entry with the new details in the spreadsheet.
+    worksheet = SHEET.worksheet("Wildlife")
+    worksheet.update_row(entry_num + 2, tmp_sighting.to_list())  # +2 to account for 0 based indexing and header row.
+    print("Entry has been updated!")
+
 # # #Size of list
 def option5():
     total = len(all_data1()) - 1 # -1 for header
@@ -164,7 +199,7 @@ def option7():
     search_scientific_name()
 # # #Search by typical habitats
 def option8():
-    all_data()
+    search_typical_habitat()
 # # #chart of estimated population
 def option9():
     all_data()
