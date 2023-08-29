@@ -1,8 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
-# from species import SpeciesSighting
-
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -69,7 +67,6 @@ def all_data():
 def all_data1():
     #get all values from spreasheet
     return wildlife.get_all_values()
-
 
 def update_sheet(sighting, worksheet='Wildlife'):
     #convert sighting into list
@@ -197,18 +194,22 @@ def option4():
     print("Entry has been updated!")
     enter()
 # # #Size of list
+
 def option5():
     total = len(all_data1()) - 1 # -1 for header
     print(f"The list has a total of {total} entries")
     enter()
+
 # # #Search by common name
 def option6():
     search_common_name()
     enter()
+
 # # #Search by scientific name
 def option7():
     search_scientific_name()
     enter()
+    
 # # #Search by typical habitats
 def option8():
     search_typical_habitat()
@@ -219,11 +220,9 @@ def option9():
     all_data()
     enter()
 
-
 def enter():
     print("----------------------------------")
     print(input("Press Enter to continue..."))
-
 
 
 #options of Menu
@@ -257,4 +256,3 @@ while True:
     else:
         print("Invalid!!! Please try again!!!")
         break
-
