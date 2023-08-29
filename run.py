@@ -13,12 +13,16 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('Wildlife')
+try:
+    CREDS = Credentials.from_service_account_file('creds.json')
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+    SHEET = GSPREAD_CLIENT.open('Wildlife')
+    wildlife = SHEET.worksheet('Wildlife')
+except Exception as e:
+    print(f"An error occurred while connecting to Google Sheets: {e}")
+    exit(1)
 
-wildlife = SHEET.worksheet('Wildlife')
 
 class SpeciesSighting:
     def __init__(self, species_id, common_name, scientific_name, typical_habitats, 
