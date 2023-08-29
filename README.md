@@ -1,5 +1,109 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+
+
+
+
+Intro:
+This program helps you to manage and record species sightings using a Google Sheet. With the power of Python combined with Google Sheets API, you can seamlessly keep track of wildlife sightings, search for specific entries, update or delete data, and more.
+
+How to Use:
+Setup Google Sheets API:
+Before using the program, ensure that you have set up the Google Sheets API and have a 'creds.json' file. This JSON will authenticate the Python script to access the Google Sheet.
+Here is the link for the goolge doc: https://docs.google.com/spreadsheets/d/16j14he0t61-asIWOEtErY5vUVeQQhXd-JbK1XRM40Lo/edit?usp=sharing
+
+Run the program:
+Execute the script, and you'll be presented with a menu offering various options from adding a wildlife entry to searching for entries based on specific criteria.
+
+Menu Options:
+Choose from the following options:
+
+Add wildlife
+Delete wildlife
+View wildlife
+Update wildlife
+Size of list
+Search by common name
+Search by scientific name
+Search by typical habitats
+View full wildlife list
+Quit:
+Enter 'q' anytime to exit the program.
+
+
+Features
+1. Google Sheets Integration:
+Secure Connection: The program uses OAuth 2.0 to authenticate and authorize access to the Google Sheet named 'Wildlife', ensuring data safety and integrity.
+
+Scopes and Permissions: It requires three distinct scopes: accessing spreadsheets, accessing drive files, and full drive access. This granularity ensures that the application can perform its operations without unnecessary permissions.
+
+Real-time Sync: All changes made through the application reflect instantly on the Google Sheet, ensuring real-time synchronization.
+
+Spreadsheet Operations: Multiple functionalities such as appending new rows, deleting rows, or retrieving data are made seamless with Google Sheet integration.
+
+2. CRUD Operations:
+Create (Add New Entries): Log new wildlife sightings. Each entry contains details such as species ID, common name, scientific name, habitats, estimated population, sighting date and time, location, and any additional notes.
+
+Read (View Entries): Users can view a particular wildlife sighting, view a list of all sightings, or even view the entire detailed list, offering flexibility in data visualization.
+
+Update (Modify Entries): An existing entry's details can be seamlessly updated. This includes all aspects of the entry, from the species ID to any additional notes.
+
+Delete: Efficiently remove any entry from the list without affecting or losing other data.
+
+3. Search Features:
+Versatile Searching: The application doesn’t limit users to searching entries by one criterion. It offers multiple search avenues:
+Common Name: Directly search for a species using its commonly known name.
+Scientific Name: For more precision, search using the scientific nomenclature.
+Typical Habitats: Find all species sighted in a particular habitat or environment.
+Partial Match: The habitat search allows for partial matches, increasing the range of search results.
+4. Data Model (Class):
+Encapsulation: The SpeciesSighting class serves as a blueprint for each wildlife sighting entry. It encapsulates vital attributes, ensuring data consistency and structure.
+
+Flexibility: This class offers methods to:
+
+Convert its attributes to a list for smooth integration with Google Sheets operations.
+Update its attributes on the fly, ensuring that modifications to entries are straightforward.
+String Representation: For better logging and printing, the class provides a string representation that summarizes the sighting.
+
+5. Error Handling:
+Connection Errors: If the program encounters any issues connecting to Google Sheets, the error is captured, a message is displayed, and the program gracefully exits.
+
+Data Integrity: When expecting date-time entries, the program anticipates a specific format. It can handle deviations or errors in this format.
+
+6. User-Friendly Menu System:
+Interactive Menu: Upon launch, the application displays a menu, guiding users through various functionalities available.
+
+Clear Instructions: Each menu option provides clear instructions, ensuring that users can easily understand and use the system.
+
+Navigation: Users can navigate back to the main menu after completing an action, allowing for continuous operation without restarting the application.
+
+Exit Mechanism: Users can exit the application gracefully using the designated 'quit' option.
+
+Data Model
+Attributes:
+Species ID: A unique identifier for each species.
+Common Name: The name by which the species is commonly known.
+Scientific Name: The official scientific name of the species.
+Habitats: The typical environments where the species can be found.
+Estimated Population: A rough estimate of the species population.
+Date and Time of Sighting: When the species was sighted.
+Location of Sighting: The geographical location of the sighting.
+Notes: Any additional information or notes about the sighting.
+
+
+
+
+
+Deployment Using Heroku:
+Make sure you have a Heroku account and Heroku CLI installed.
+Commit your changes to your Git repository.
+Create a new Heroku app: heroku create your-app-name.
+Push your repository to Heroku: git push heroku master.
+Ensure your environment variables (like those from creds.json) are set in the Heroku dashboard under your app's settings.
+
+
+
+
 Welcome,
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
