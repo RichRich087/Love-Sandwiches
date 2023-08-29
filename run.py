@@ -1,6 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
@@ -56,12 +53,12 @@ class SpeciesSighting:
         self.notes = input(f"Notes (current: {self.notes}): ") or self.notes
 
 
-#test adding 2 new items
-sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
-sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
+#add items to delete items from spreadsheet. Do not delete existing entries!!!
+# sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
+# sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
 
-print(sighting1)
-print(sighting2)
+# print(sighting1)
+# print(sighting2)
 
 
 def all_data():
@@ -134,8 +131,7 @@ def menu():
     print("6 -Search by common name")
     print("7 -Search by scientific name")
     print("8 - Search by typical habitats")
-    print("9 - chart of estimated population")
-    print("10 - View full wildlife list")
+    print("9 - View full wildlife list")
     print("q - Quit")
 
 def wildlife_list():
@@ -217,13 +213,9 @@ def option7():
 def option8():
     search_typical_habitat()
     enter()
-# # #chart of estimated population
-def option9():
-    all_data()
-    enter()
 
 # # #View full wildlife list
-def option10():
+def option9():
     all_data()
     enter()
 
@@ -258,8 +250,6 @@ while True:
         enter()
     elif option == "9":
         option9()
-    elif option == "10":
-        option10()
 
     elif option == "q":
         print("Program Dead")
