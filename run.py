@@ -40,6 +40,18 @@ class SpeciesSighting:
                 self.estimated_population, self.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M'), 
                 self.location_of_sighting, self.notes]
 
+    def update(self):
+        self.species_id = input(f"Species I.D. (current: {self.species_id}): ") or self.species_id
+        self.common_name = input(f"Common Name (current: {self.common_name}): ") or self.common_name
+        self.scientific_name = input(f"Scientific Name (current: {self.scientific_name}): ") or self.scientific_name
+        self.typical_habitats = input(f"Typical Habitats (current: {self.typical_habitats}): ") or self.typical_habitats
+        self.estimated_population = input(f"Estimated Population (current: {self.estimated_population}): ") or self.estimated_population
+        date_and_time = input(f"Date and Time of Sighting (current: {self.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M')}): ") or self.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M')
+        self.date_and_time_of_sighting = datetime.strptime(date_and_time, '%d/%m/%Y %H:%M')
+        self.location_of_sighting = input(f"Location of Sighting (current: {self.location_of_sighting}): ") or self.location_of_sighting
+        self.notes = input(f"Notes (current: {self.notes}): ") or self.notes
+
+
 #test adding 2 new items
 sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
 sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
@@ -146,19 +158,21 @@ def option1():
     sighting = SpeciesSighting (species_id, common_name, scientific_name, typical_habitats, estimated_population, date_and_time, location, notes)
     update_sheet(sighting)
     print (f" added: {sighting}")
+    enter()
 
 # # #Delete wildlife
 def option2():
     wildlife_list()
     selection2 = int(input("Enter the number for the entry you would like to delete: \n"))
     delete(selection2)
-#needs work to make sure correct index is deleted
+    enter()
 
 # # #View wildlife
 def option3():
     wildlife_list()
     selection3 = int(input("Enter the number for the entry you would like to view: \n"))
     print(wildlife.row_values(selection3 + 2))
+    enter()
 
 # # #Update wildlife
 def option4():
@@ -170,42 +184,45 @@ def option4():
     entry_data = all_data1()[entry_num + 1]  # +1 to skip the header row
 
     # Create a temporary object from the current data
-    tmp_sighting = SpeciesSighting(*entry_data)  # Using * to unpack the list elements as arguments
+    tmp_sighting = SpeciesSighting(*entry_data)  # Using * to unpack the list elements 
 
-    # Now, collect new data from the user
-    tmp_sighting.species_id = input(f"Species I.D. (current: {tmp_sighting.species_id}): ") or tmp_sighting.species_id
-    tmp_sighting.common_name = input(f"Common Name (current: {tmp_sighting.common_name}): ") or tmp_sighting.common_name
-    tmp_sighting.scientific_name = input(f"Scientific Name (current: {tmp_sighting.scientific_name}): ") or tmp_sighting.scientific_name
-    tmp_sighting.typical_habitats = input(f"Typical Habitats (current: {tmp_sighting.typical_habitats}): ") or tmp_sighting.typical_habitats
-    tmp_sighting.estimated_population = input(f"Estimated Population (current: {tmp_sighting.estimated_population}): ") or tmp_sighting.estimated_population
-    tmp_sighting.date_and_time_of_sighting = input(f"Date and Time of Sighting (current: {tmp_sighting.date_and_time_of_sighting.strftime('%d/%m/%Y %H:%M')}): ") or tmp_sighting.date_and_time_of_sighting
-    tmp_sighting.location_of_sighting = input(f"Location of Sighting (current: {tmp_sighting.location_of_sighting}): ") or tmp_sighting.location_of_sighting
-    tmp_sighting.notes = input(f"Notes (current: {tmp_sighting.notes}): ") or tmp_sighting.notes
+    # Update the object using its method
+    tmp_sighting.update()
 
     # Update the chosen entry with the new details in the spreadsheet.
     worksheet = SHEET.worksheet("Wildlife")
-    worksheet.update_row(entry_num + 2, tmp_sighting.to_list())  # +2 to account for 0 based indexing and header row.
+    row_to_update = entry_num + 2  # +2 to account for 0 based indexing and header row.
+    range_label = f"A{row_to_update}:H{row_to_update}" 
+    worksheet.update(range_label, [tmp_sighting.to_list()])  # Wrap the list in another list 
     print("Entry has been updated!")
-
+    enter()
 # # #Size of list
 def option5():
     total = len(all_data1()) - 1 # -1 for header
     print(f"The list has a total of {total} entries")
+    enter()
 # # #Search by common name
 def option6():
     search_common_name()
+    enter()
 # # #Search by scientific name
 def option7():
     search_scientific_name()
+    enter()
 # # #Search by typical habitats
 def option8():
     search_typical_habitat()
+    enter()
 # # #chart of estimated population
 def option9():
     all_data()
+    enter()
+
 # # #View full wildlife list
 def option10():
     all_data()
+    enter()
+
 
 def enter():
     print("----------------------------------")
@@ -220,44 +237,25 @@ while True:
 
     if option == "1":
         option1()
-        enter()
-        menu()
-    if option == "2":
+    elif option == "2":
         option2()
-        enter()
-        menu()
-    if option == "3":
+    elif option == "3":
         option3()
-        enter()
-        menu()
-    if option == "4":
+    elif option == "4":
         option4()
-        enter()
-        menu()
-    if option == "5":
+    elif option == "5":
         option5()
-        enter()
-        menu()
-    if option == "6":
+    elif option == "6":
         option6()
-        enter()
-        menu()
-    if option == "7":
+    elif option == "7":
         option7()
-        enter()
-        menu()
-    if option == "8":
+    elif option == "8":
         option8()
         enter()
-        menu()
-    if option == "9":
+    elif option == "9":
         option9()
-        enter()
-        menu()
-    if option == "10":
+    elif option == "10":
         option10()
-        enter()
-        menu()
 
     elif option == "q":
         print("Program Dead")
