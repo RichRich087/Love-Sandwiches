@@ -51,12 +51,12 @@ class SpeciesSighting:
         self.notes = input(f"Notes (current: {self.notes}): ") or self.notes
 
 
-quick option add items to delete items from spreadsheet. Do not delete existing entries!!!
-sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
-sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
+# quick option add items to delete items from spreadsheet. Do not delete existing entries!!!
+# sighting1 = SpeciesSighting(14, "test ed Fox", "Vulpes vulpes", "Location of sighting", "150,000", "23/08/2023 15:30", "Cork City Park", "None")
+# sighting2 = SpeciesSighting(15, "test Irish Hare", "Lepus timidus hibernicus", "Woodlands, urban", "40,000", "24/08/2023 07:20", "Galway Countryside", "None")
 
-print(sighting1)
-print(sighting2)
+# print(sighting1)
+# print(sighting2)
 
 
 def all_data():
