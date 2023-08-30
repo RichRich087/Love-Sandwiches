@@ -14,6 +14,7 @@ Here is the link for the goolge doc: https://docs.google.com/spreadsheets/d/16j1
 
 Run the program:
 Execute the script, and you'll be presented with a menu offering various options from adding a wildlife entry to searching for entries based on specific criteria.
+<img width="254" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/8026a3df-0e6b-4bcb-9894-34c7bd5af412">
 
 Menu Options:
 Choose from the following options:
@@ -34,6 +35,7 @@ Enter 'q' anytime to exit the program.
 Features
 1. Google Sheets Integration:
 Secure Connection: The program uses OAuth 2.0 to authenticate and authorize access to the Google Sheet named 'Wildlife', ensuring data safety and integrity.
+<img width="899" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/2abf3668-d26c-4fb7-9790-cde72f1dda79">
 
 Scopes and Permissions: It requires three distinct scopes: accessing spreadsheets, accessing drive files, and full drive access. This granularity ensures that the application can perform its operations without unnecessary permissions.
 
@@ -43,20 +45,31 @@ Spreadsheet Operations: Multiple functionalities such as appending new rows, del
 
 2. CRUD Operations:
 Create (Add New Entries): Log new wildlife sightings. Each entry contains details such as species ID, common name, scientific name, habitats, estimated population, sighting date and time, location, and any additional notes.
+<img width="233" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/c90a0d3f-cf05-415f-a700-3c79d50f36fc">
 
 Read (View Entries): Users can view a particular wildlife sighting, view a list of all sightings, or even view the entire detailed list, offering flexibility in data visualization.
+<img width="307" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/e8dbcf85-f060-46e5-8b0c-e74cfd7977b2">
 
 Update (Modify Entries): An existing entry's details can be seamlessly updated. This includes all aspects of the entry, from the species ID to any additional notes.
+<img width="284" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/323be76a-9fdf-4acf-aa74-094308389f6f">
 
 Delete: Efficiently remove any entry from the list without affecting or losing other data.
+<img width="319" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/0592f3e7-cd92-4fa1-9031-29bc03e82b42">
 
 3. Search Features:
 Versatile Searching: The application doesn’t limit users to searching entries by one criterion. It offers multiple search avenues:
 Common Name: Directly search for a species using its commonly known name.
+<img width="221" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/bcf13dac-7447-4251-aed1-02bf95542661">
+
 Scientific Name: For more precision, search using the scientific nomenclature.
+<img width="230" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/9a5a739b-90af-40de-b8f1-0b914461a2b5">
+
 Typical Habitats: Find all species sighted in a particular habitat or environment.
 Partial Match: The habitat search allows for partial matches, increasing the range of search results.
-4. Data Model (Class):
+<img width="209" alt="image" src="https://github.com/RichRich087/Wildlife/assets/128620545/1adb49c7-b9dc-4c8f-9cbd-96118030cc3f">
+
+
+5. Data Model (Class):
 Encapsulation: The SpeciesSighting class serves as a blueprint for each wildlife sighting entry. It encapsulates vital attributes, ensuring data consistency and structure.
 
 Flexibility: This class offers methods to:
@@ -100,6 +113,7 @@ Commit your changes to your Git repository.
 Create a new Heroku app: heroku create your-app-name.
 Push your repository to Heroku: git push heroku master.
 Ensure your environment variables (like those from creds.json) are set in the Heroku dashboard under your app's settings.
+Deploy.
 
 
 
